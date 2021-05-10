@@ -1,0 +1,57 @@
+<!DOCTYPE HTML5>
+<html>
+<head>
+  <link rel = "stylesheet" href = "style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+<script src = "function.js"> </script>
+
+  
+</head>
+
+
+<body id = "bg"> 
+     <h1 id = "title" style = "padding: 60px; color: white; text-align: center; background-color: red;"> Welcome to the St John's Course directory! </h1>
+     
+    
+ 
+
+ <form onsubmit = "return false;" id = "queryform"> 
+      <ul style = "color: white;">
+        <label for = "code"> Search by Course code: </label> 
+        <input type = "text" id = "code" name = "code" value = ""> 
+        <input id = "codeQuery" type = "button" onclick = "update(this)"value = "Query" data-querytype = "by_code"> <br>
+        <label for = "level"> Search by Course level: </label> 
+        <input type = "text" id = "level" name = "level" value = ""> 
+        <input id = "levelQuery" type = "button" onclick = "update(this)"value = "Query" data-querytype = "by_level"> <br>
+        <label for = "title"> Search by Title: </label> 
+        <input type = "text" id = "title" name = "title" value = ""> 
+        <input id = "titleQuery" type = "button" onclick = "update(this)"value = "Query" data-querytype = "by_title">  <br>
+        <label for = "instructor"> Search by Instructor: </label> 
+        <input type = "text" id = "instructor" name = "instructor" value = ""> 
+        <input id = "insQuery" type = "button" onclick = "update(this)"value = "Query" data-querytype = "by_instructor"> 
+        
+        </ul>
+ </form>
+
+<div id = "displays"> </div>
+
+
+</body>
+
+
+</html>
+<script id = "show_results_view" type = "text/x-handlebars-template"> 
+ <ul>
+  {{#each courses}}
+      <li style = "color: white;"> Course code: {{this.course_code}} | Course level: {{this.course_level}} | Title: {{this.title}} | Instructor: {{this.instructor}}</li>
+  {{/each}}
+ </ul>
+</script>
